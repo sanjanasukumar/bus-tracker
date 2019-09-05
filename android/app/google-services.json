@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "477977498878",
+    "firebase_url": "https://ifp-bustracker.firebaseio.com",
+    "project_id": "ifp-bustracker",
+    "storage_bucket": "ifp-bustracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:477977498878:android:e1dd7614264c94c3b281af",
+        "android_client_info": {
+          "package_name": "com.example.bus_trackerv2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "477977498878-js3mkeig5hmnr00uvpn5na3c043sk6po.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtXwD5nTplWAdPTrgCT4hIRkhIiFpJmoc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "477977498878-js3mkeig5hmnr00uvpn5na3c043sk6po.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
