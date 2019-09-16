@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:location/location.dart';
 
 class Home extends StatefulWidget {
   const Home({Key key, @required this.user}) : super(key: key);
@@ -20,30 +21,49 @@ class _HomeState extends State<Home> {
   }
 }
 
-class MapSample extends StatelessWidget {
+class MapSample extends StatefulWidget {
+  @override
+  State createState() => _MapSampleState();
+}
+
+class _MapSampleState extends State<MapSample> {
   GoogleMapController mapController;
-
-  final LatLng _center = const LatLng(12.984320, 80.258942);
-
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
-  }
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Map'),
-        ),
-        body: GoogleMap(
+    return Stack(
+      children: [
+        GoogleMap(
+          initialCameraPosition:
+              CameraPosition(target: LatLng(24.150, -110.32), zoom: 10),
           onMapCreated: _onMapCreated,
-          initialCameraPosition: CameraPosition(
-            target: _center,
-            zoom: 11.0,
-          ),
+          myLocationEnabled: true,
+          mapType: MapType.hybrid,
+//            trackCameraPosition: true
         ),
-      ),
+        /*Positioned(
+            bottom: 50,
+            right: 10,
+            child: FlatButton(
+              child: Icon(Icons.pin_drop),
+              color: Colors.green,
+              onPressed: () => _addMarker(),
+            ))*/
+      ],
     );
   }
+
+  void _onMapCreated(GoogleMapController controller) {
+    setState(() {
+      mapController = controller;
+    });
+  }
+
+  /*_addMarker() {
+    final marker = Marker(
+      markerId: MarkerId('1'),
+      position: LatLng(),
+    )
+
+
+  }*/
 }
